@@ -17,6 +17,9 @@ public class MyStack {
     }
 
     public int pop(){
+        if(isEmpty()){
+            throw new RuntimeException("스택이 비었습니다.");
+        }
         this.pointer--;
         int popValue = this.arr[this.pointer];
         return popValue;
@@ -24,5 +27,9 @@ public class MyStack {
 
     public int[] getArr(){
         return arr;
+    }
+
+    public boolean isEmpty() {
+        return this.pointer==0;
     }
 }

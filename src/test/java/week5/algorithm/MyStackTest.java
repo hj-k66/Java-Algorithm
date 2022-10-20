@@ -8,19 +8,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyStackTest {
-
+    MyStack myStack;
     @BeforeEach
     void setUp(){
         //테스트 수행 전 실행되는 코드
         //ex) db에서 데이터 지우는 코드
         //ex) db에 데이터 넣는 코드
         System.out.println("before each");
+        myStack = new MyStack();
+
     }
 
 
     @Test
     void pushTest(){
-        MyStack myStack = new MyStack();
         myStack.push(1);
         myStack.push(20);
         int[] arr = myStack.getArr();
@@ -31,7 +32,6 @@ class MyStackTest {
     @Test
     @DisplayName("push, pop이 잘 되는지")
     void pushAndPop(){
-        MyStack myStack = new MyStack();
         myStack.push(10);
         myStack.push(20);
 
@@ -40,6 +40,24 @@ class MyStackTest {
 
         myStack.push(30);
         Assertions.assertEquals(30,myStack.pop());
+
+        //스택이  비어있을때
+        //Exception test
+        Assertions.assertThrows(RuntimeException.class,()->{
+            myStack.pop();
+        });
+
+    }
+    @Test
+    void isEmpty(){
+        //비었을 떄
+        Assertions.assertTrue(myStack.isEmpty());
+        //값 넣었을 떄
+        myStack.push(10);
+        Assertions.assertFalse(myStack.isEmpty());
+        //값 뺏을 때
+        myStack.pop();
+        Assertions.assertTrue(myStack.isEmpty());
 
     }
 }

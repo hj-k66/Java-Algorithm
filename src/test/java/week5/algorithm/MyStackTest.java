@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.EmptyStackException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyStackTest {
@@ -58,6 +60,17 @@ class MyStackTest {
         //값 뺏을 때
         myStack.pop();
         Assertions.assertTrue(myStack.isEmpty());
+
+    }
+
+    @Test
+    void peek(){
+        Assertions.assertThrows(EmptyStackException.class,()->{
+            myStack.peek();
+        });
+        myStack.push(10);
+        int peeked = myStack.peek();
+        Assertions.assertEquals(10,peeked);
 
     }
 }

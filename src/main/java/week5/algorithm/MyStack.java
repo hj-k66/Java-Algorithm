@@ -1,5 +1,7 @@
 package week5.algorithm;
 
+import java.util.EmptyStackException;
+
 public class MyStack {
     private int[] arr = new int[10000];
     private int pointer = 0;
@@ -31,5 +33,12 @@ public class MyStack {
 
     public boolean isEmpty() {
         return this.pointer==0;
+    }
+
+    public int peek() {
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
+        return this.arr[this.pointer-1];
     }
 }

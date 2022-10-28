@@ -6,14 +6,11 @@ import java.util.Set;
 public class Pokemon{
     public int solution(int[] nums) {
         Set<Integer> set = new HashSet<>();
-        for (int num:nums) {
+        for (int num : nums) {
             set.add(num);
         }
         int n = nums.length / 2;
-        if(set.size() < n){
-            return set.size();
-        }else{
-            return n;
-        }
+        //둘 중 최솟값 리턴
+        return Math.min(set.size(), n);
     }
 }

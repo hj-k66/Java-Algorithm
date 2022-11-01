@@ -13,7 +13,6 @@ public class PrimeNum01 {
             return true;
         }
         for (int i = 2; compare.getCondition(i,num); i++) {
-            System.out.println(i);
             if (num % i == 0) { //나누어 떨어지는게 하나라도 있으면 소수 x
                 return false;
             }
@@ -22,29 +21,14 @@ public class PrimeNum01 {
         return true;
     }
     public boolean isPrime01(int num){
-        return isPrime(num, new Compare() {
-            @Override
-            public boolean getCondition(int a, int b) {
-                return a<b;
-            }
-        });
+        return isPrime(num, (a, b) -> a<b);
     }
     public boolean isPrime02(int num){
-        return isPrime(num, new Compare() {
-            @Override
-            public boolean getCondition(int a, int b) {
-                return a<b/2;
-            }
-        });
+        return isPrime(num, (a, b) -> a<b/2);
     }
 
     public boolean isPrime03(int num){
-        return isPrime(num, new Compare() {
-            @Override
-            public boolean getCondition(int a, int b) {
-                return a < Math.sqrt(b)+1;
-            }
-        });
+        return isPrime(num, (a, b) -> a < Math.sqrt(b)+1);
     }
 
     public static void main(String[] args) {

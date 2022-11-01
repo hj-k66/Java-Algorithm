@@ -9,15 +9,16 @@ public class PrimeNum01 {
             return true;
         }
         for (int i = 2; i < num; i++) {
-            if (num % i != 0) {
-                return true;
+            if (num % i == 0) { //나누어 떨어지는게 하나라도 있으면 소수 x
+                return false;
             }
         }
-        return false;
+        //다 돌았을 때 나누어떨어지는게 하나도 없었으면 소수 O
+        return true;
     }
 
     public static void main(String[] args) {
-        int[] arr = {13, 17, 19, 23};
+        int[] arr = {27, 13, 17, 19, 23};
         List<Integer> prime = new ArrayList<>();
         PrimeNum01 primeNum01 = new PrimeNum01();
         for (int elem : arr) {

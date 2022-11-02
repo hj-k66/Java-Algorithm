@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Exam {
+    //array에서 maxValue 찾기
     public int getMax(int[] arr){
         int maxValue = arr[0];
         for(int i = 0; i < arr.length;i++){
@@ -35,7 +36,7 @@ public class Exam {
             }
         }
 
-
+        //max와 같으면 idx+1(학생번호)를 append
         int maxValue = getMax(result);
         for(int i = 0; i < result.length;i++){
             if(maxValue==result[i]){

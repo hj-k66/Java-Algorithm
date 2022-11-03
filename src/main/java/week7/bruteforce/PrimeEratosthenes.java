@@ -1,15 +1,21 @@
 package week7.bruteforce;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Arrays;;
 
 public class PrimeEratosthenes {
     public int solution(int n) {
-        boolean[] checks = new boolean[n-2];
         int answer = 0;
-        for (int i = 0; i < checks.length ; i++) {
-            checks[i] = true;
+        //초기 셋팅
+        int[] nums = new int[n-1];
+        boolean[] checks = new boolean[nums.length];
+        Arrays.fill(checks, true);
+        for (int i = 0; i < nums.length ; i++) {
+            nums[i] = i+2;
         }
+
+
+
         return answer;
     }
 

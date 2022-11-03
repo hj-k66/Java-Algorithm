@@ -5,34 +5,18 @@ import java.util.List;
 
 public class PrimeEratosthenes {
     public int solution(int n) {
-        int[] numbers = new int[n-1];
-        boolean[] checks = new boolean[n-1];
-        int num = 2;
-        for (int i = 0; i < n-1 ; i++) {
-            numbers[i] = num++;
-            checks[i] = true;
-        }
-
-        for (int k = 2; k * k < n; k++) {
-            for (int i = 0; i < numbers.length; i++) {
-                if(numbers[i] % k == 0 && numbers[i] != k){
-                    checks[i] = false;
-                }
-            }
-        }
-        //check가 true인 numbers[i] >> 소수
+        boolean[] checks = new boolean[n-2];
         int answer = 0;
-        for (int i = 0; i < n-1 ; i++) {
-            if(checks[i]){
-                answer++;
-            }
+        for (int i = 0; i < checks.length ; i++) {
+            checks[i] = true;
         }
         return answer;
     }
 
     public static void main(String[] args) {
         int n = 50;
-        PrimeEratosthenes pe = new PrimeEratosthenes();
-        System.out.println(pe.solution(n));
+        for(int i = 2; i <= 100; i++ ){
+            System.out.printf("%d, %d\n", i,(i-1)*2);
+        }
     }
 }

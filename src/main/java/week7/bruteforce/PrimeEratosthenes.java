@@ -14,16 +14,18 @@ public class PrimeEratosthenes {
             nums[i] = i+2;
         }
 
-        int multipleOf = 2;
-        for(int i = 2; i < nums.length; i+=multipleOf){
-            checks[i] = false;
 
+        for(int multipleOf = 2; multipleOf*multipleOf < n; multipleOf++){
+            for(int i = (multipleOf-1)*2; i < nums.length; i+=multipleOf){
+                checks[i] = false;
+            }
         }
 
-        //checks가 true인 nums[i]만 출력
+
+        //checks가 true인 수가 소수
         for(int i = 0; i < nums.length; i++){
             if(checks[i]){
-                System.out.println(nums[i]);
+                answer++;
             }
         }
 
@@ -33,6 +35,6 @@ public class PrimeEratosthenes {
     public static void main(String[] args) {
         int n = 50;
         PrimeEratosthenes pe = new PrimeEratosthenes();
-        pe.solution(n);
+        System.out.println(pe.solution(n));
     }
 }

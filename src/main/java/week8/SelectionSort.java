@@ -22,28 +22,23 @@ public class SelectionSort {
         return idx;
     }
 
-    public int findMinIndex(int[] arr, int i){
-        return findIndex(arr, i, (a, b) -> a > b);
-    }
-    public int findMaxIndex(int[] arr, int i){
-        return findIndex(arr,i, (a, b) -> a < b);
+    public int[] sort(int arr[], Compare compare){
+        for (int i = 0; i < arr.length; i++) {
+            int idx = findIndex(arr,i,compare);
+            swap(arr,i,idx);
+        }
+        return arr;
     }
 
 
     public static void main(String[] args) {
         int[] arr = new int[]{2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
         SelectionSort selectionSort = new SelectionSort();
-        for (int i = 0; i < arr.length; i++) {
-            int minIdx = selectionSort.findMinIndex(arr,i);
-            selectionSort.swap(arr,i,minIdx);
-        }
-        System.out.println(Arrays.toString(arr));
+        int[] result = selectionSort.sort(arr, (a,b)-> a > b);
+        System.out.println(Arrays.toString(result));
 
         int[] arr2 = new int[]{2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
-        for (int i = 0; i < arr2.length; i++) {
-            int maxIdx = selectionSort.findMaxIndex(arr2,i);
-            selectionSort.swap(arr2,i,maxIdx);
-        }
-        System.out.println(Arrays.toString(arr2));
+        int[] result2 = selectionSort.sort(arr2, (a,b) -> a < b);
+        System.out.println(Arrays.toString(result2));
     }
 }

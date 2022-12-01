@@ -2,7 +2,6 @@ package week11;
 
 public class CountOfPY {
     boolean solution(String s) {
-        boolean answer = true;
         int countP = 0;
         int countY = 0;
         String upperCase = s.toUpperCase();
@@ -14,10 +13,6 @@ public class CountOfPY {
             }
 
         }
-
-        if(countP != countY) {
-            answer = false;
-        }
-        return answer;
+        return countP == countY;
     }
 }
